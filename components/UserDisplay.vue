@@ -10,9 +10,12 @@
 <script>
 export default {
   props: ['user'],
+  mounted() {
+    console.log(this.user)
+  },
   computed: {
     url() {
-      return '/user/' + (this.user_id || this.user.id)
+      return '/user/' + (this.user._id || this.user.id)
     }
   }
 }

@@ -14,8 +14,10 @@
             <nuxt-link to="/user">退出</nuxt-link>
           </el-menu-item>
           <el-menu-item v-if="userinfo.id" index="4" class="pull-right">
-            <nuxt-link to="/user">{{ userinfo.nickname }}</nuxt-link>
+            <UserDisplay :user="userinfo"> </UserDisplay>
+            <!-- <nuxt-link to="/user">{{ userinfo.nickname }}</nuxt-link> -->
           </el-menu-item>
+
           <el-menu-item v-if="userinfo.id" index="4" class="pull-right">
             <nuxt-link to="/editor/new">
               <el-button type="primary">写文章</el-button>
@@ -33,14 +35,14 @@
       <el-main>
         <nuxt />
       </el-main>
-      <el-footer>
-        底部
-      </el-footer>
+      <el-footer> </el-footer>
     </el-container>
   </div>
 </template>
 <script>
+import UserDisplay from '~/components/UserDisplay.vue'
 export default {
+  components: { UserDisplay },
   computed: {
     userinfo() {
       return this.$store.state.user
@@ -70,7 +72,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: #eee;
 }
 
 *,

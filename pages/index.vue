@@ -2,7 +2,7 @@
   <div class="blog-container">
     <h1>文章</h1>
     <div v-for="article in articles">
-      <nuxt-link :to="'/article' + article._id">
+      <nuxt-link :to="'/article/' + article._id">
         {{ article.title }}
       </nuxt-link>
     </div>
